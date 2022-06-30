@@ -3,7 +3,8 @@
         <p>{{ task }}</p>
         <div>
             <button v-if="complete" @click="deleteTask(id)">Delete</button>
-            <button @click="completeTask(id)">Complete</button>
+            <button v-if="complete" @click="activateTask(id)">Activate</button>
+            <button v-else @click="completeTask(id)">Complete</button>
         </div>
     </div>
 </template>
