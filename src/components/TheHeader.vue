@@ -13,6 +13,7 @@ export default {
 <style scoped>
 header{
     background-color: rgb(0, 194, 0);
+    margin-bottom: 20px;
 }
 h1{
     margin: 0;
