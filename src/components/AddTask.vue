@@ -16,6 +16,7 @@ export default{
     methods: {
         addItem(){
             this.$emit('add-item', this.task);
+            this.task = '';
         }
     }
 }
