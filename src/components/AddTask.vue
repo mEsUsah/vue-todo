@@ -1,8 +1,8 @@
 <template>
-    <label for="task">Task</label>
-    <input type="text" name="task" v-model="task">
-    <button @click="addItem">Add</button>
-
+    <div>
+        <input type="text" name="task" v-model="task" placeholder="Task to do...">
+        <button @click="addItem">Add</button>
+    </div>
 </template>
 
 <script>
@@ -20,3 +20,26 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+    div{
+        width: 100%;
+        display: flex;
+    }
+    input{
+        flex-grow: 1;
+        padding: 6px;
+        font-size: 16px;
+        line-height: 16px;
+        border: 1px solid black;
+        border-right: none;
+    }
+    button{
+        padding: 6px 12px;
+        font-size: 16px;
+        line-height: 16px;
+        border: 1px solid black;
+        background-color: black;
+        color: white;
+    }
+</style>
