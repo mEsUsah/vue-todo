@@ -4,15 +4,16 @@
         <add-task @add-item="addTask"></add-task>
     </base-card>
     <base-card>
+        <button @click="showPendignTasks">Active</button>
+        <button @click="showCompletedTasks">Completed</button>
         <task-item 
-            v-for="task in pendingTasks" 
+            v-for="task in displayedTasks" 
             :key="task.id"
             :id="task.id"
             :task="task.title"
             :complete="task.complete"
             @delete-task="deleteTask"
-            @complete-task="completeTask"
-        >
+            @complete-task="completeTask">
         </task-item>
     </base-card>
 </template>
@@ -26,6 +27,7 @@ import AddTask from './components/AddTask.vue';
 export default {
   data(){
     return{
+        activeList: 'pending',
         tasks: [
             {
                 id: 1,
@@ -46,8 +48,12 @@ export default {
     }
   },
   computed: {
-    pendingTasks(){
-        return this.tasks.filter(task => task.complete === false);
+    displayedTasks(){
+        if(this.activeList == 'pending'){
+            return this.tasks.filter(task => task.complete === false);
+        } else {
+            return this.tasks.filter(task => task.complete === true);
+        }
     }
   },
   methods: {
@@ -66,9 +72,20 @@ export default {
     completeTask(taskId){
         const taskIndex = this.tasks.findIndex(task => task.id === taskId);
         this.tasks[taskIndex].complete = true;
+    },
+    showCompletedTasks(){
+        this.activeList = 'completed';
+    },
+    showPendignTasks(){
+        this.activeList = 'pending'
     }
   },
-  components: { TheHeader, BaseCard, TaskItem, AddTask }
+  components: { 
+    TheHeader, 
+    BaseCard, 
+    TaskItem, 
+    AddTask,
+  }
 }
 </script>
 
