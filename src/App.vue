@@ -54,7 +54,8 @@ export default {
         const taskId = new Date().toISOString();
         this.tasks.unshift({
             id: taskId,
-            title: task
+            title: task,
+            complete: false
         });
     },
     deleteTask(taskId){
