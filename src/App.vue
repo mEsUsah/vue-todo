@@ -1,6 +1,9 @@
 <template>
     <the-header title="Todo's"></the-header>
     <base-card>
+        <add-task @add-item="addTask"></add-task>
+    </base-card>
+    <base-card>
         <task-item 
             v-for="task in tasks" 
             :key="task.id"
@@ -16,6 +19,7 @@
 import TheHeader from './components/TheHeader.vue';
 import BaseCard from './components/BaseCard.vue';
 import TaskItem from './components/TaskItem.vue';
+import AddTask from './components/AddTask.vue';
 
 export default {
   data(){
@@ -37,14 +41,19 @@ export default {
     }
   },
   methods: {
+    addTask(task){
+        const taskId = new Date().toISOString();
+        this.tasks.unshift({
+            id: taskId,
+            title: task
+        });
+    },
     deleteTask(taskId){
-        console.log(taskId);
         const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
         this.tasks.splice(taskIndex,1);
-        console.log("ok");
     }
   },
-  components: { TheHeader, BaseCard, TaskItem },
+  components: { TheHeader, BaseCard, TaskItem, AddTask }
 }
 </script>
 
