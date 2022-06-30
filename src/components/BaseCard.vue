@@ -13,7 +13,7 @@ export default{
     div{
         background-color: rgb(0, 194, 0);
         padding: 20px;
-        margin: 0 auto;
+        margin: 0 auto 20px auto;
         max-width: 800px;
         widows: 100%;
     }
