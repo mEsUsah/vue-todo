@@ -12,14 +12,18 @@
 <script>
 export default{
     props: ['id','task','complete'],
-    emits: ['delete-task','complete-task'],
+    emits: ['delete-task','complete-task', 'activate-task'],
     methods: {
         deleteTask(taskId){
             this.$emit('delete-task', taskId);
         },
         completeTask(taskId){
             this.$emit('complete-task', taskId);
-        }
+        },
+        activateTask(taskId){
+            this.$emit('activate-task', taskId);
+        },
+        
     }
 }
 </script>

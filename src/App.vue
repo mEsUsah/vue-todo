@@ -13,7 +13,8 @@
             :task="task.title"
             :complete="task.complete"
             @delete-task="deleteTask"
-            @complete-task="completeTask">
+            @complete-task="completeTask"
+            @activate-task="activateTask">
         </task-item>
     </base-card>
 </template>
@@ -73,6 +74,11 @@ export default {
         const taskIndex = this.tasks.findIndex(task => task.id === taskId);
         this.tasks[taskIndex].complete = true;
     },
+    activateTask(taskId){
+        const taskIndex = this.tasks.findIndex(task => task.id === taskId);
+        this.tasks[taskIndex].complete = false;
+    },
+    
     showCompletedTasks(){
         this.activeList = 'completed';
     },
