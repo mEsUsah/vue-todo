@@ -9,6 +9,7 @@
             :key="task.id"
             :id="task.id"
             :task="task.title"
+            :complete="task.complete"
             @delete-task="deleteTask"
             @complete-task="completeTask"
         >

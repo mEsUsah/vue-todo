@@ -2,7 +2,7 @@
     <div>
         <p>{{ task }}</p>
         <div>
-            <button @click="deleteTask(id)">Delete</button>
+            <button v-if="complete" @click="deleteTask(id)">Delete</button>
             <button @click="completeTask(id)">Complete</button>
         </div>
     </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default{
-    props: ['id','task'],
+    props: ['id','task','complete'],
     emits: ['delete-task','complete-task'],
     methods: {
         deleteTask(taskId){
