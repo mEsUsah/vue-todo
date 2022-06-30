@@ -1,14 +1,50 @@
 <template>
     <the-header title="Todo's"></the-header>
+    <base-card>
+        <task-item 
+            v-for="task in tasks" 
+            :key="task.id"
+            :id="task.id"
+            :task="task.title"
+            @delete-task="deleteTask"
+        >
+        </task-item>
+    </base-card>
 </template>
 
 <script>
+import TheHeader from './components/TheHeader.vue';
+import BaseCard from './components/BaseCard.vue';
+import TaskItem from './components/TaskItem.vue';
 
-import TheHeader from './components/TheHeader.vue'
 export default {
-  components: { TheHeader },
-
-
+  data(){
+    return{
+        tasks: [
+            {
+                id: 1,
+                title: "first"
+            },
+            {
+                id: 2,
+                title: "second"
+            },
+            {
+                id: 3,
+                title: "third"
+            },
+        ]
+    }
+  },
+  methods: {
+    deleteTask(taskId){
+        console.log(taskId);
+        const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
+        this.tasks.splice(taskIndex,1);
+        console.log("ok");
+    }
+  },
+  components: { TheHeader, BaseCard, TaskItem },
 }
 </script>
 
