@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" name="task" v-model="task" placeholder="Task to do...">
+        <input @keydown.enter="addItem" type="text" name="task" v-model="task" placeholder="Task to do...">
         <button @click="addItem">Add</button>
     </div>
 </template>
