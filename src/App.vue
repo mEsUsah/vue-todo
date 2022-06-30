@@ -3,9 +3,11 @@
     <base-card>
         <add-task @add-item="addTask"></add-task>
     </base-card>
-    <base-card>
+    <div class="tabs">
         <button @click="showPendignTasks">Active ({{ getPendingTasks }})</button>
         <button @click="showCompletedTasks">Completed ({{ getCompletedTasks }})</button>
+    </div>
+    <base-card>
         <task-item 
             v-for="task in displayedTasks" 
             :key="task.id"
@@ -107,5 +109,19 @@ body{
     margin: 0;
     font-family: 'Lato', sans-serif;
     background-color: rgb(182, 182, 182);
+}
+.tabs{
+    margin: 0 auto ;
+    max-width: 840px;
+    width: 100%;
+}
+.tabs button{
+    background-color: rgb(0, 194, 0);
+    border: 1px solid black;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 16px;
+    color: white;
+    cursor: pointer;
 }
 </style>
