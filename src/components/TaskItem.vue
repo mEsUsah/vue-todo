@@ -1,17 +1,23 @@
 <template>
     <div>
         <p>{{ task }}</p>
-        <button @click="deleteTask(id)">X</button>
+        <div>
+            <button @click="deleteTask(id)">Delete</button>
+            <button @click="completeTask(id)">Complete</button>
+        </div>
     </div>
 </template>
 
 <script>
 export default{
     props: ['id','task'],
-    emits: ['delete-task'],
+    emits: ['delete-task','complete-task'],
     methods: {
         deleteTask(taskId){
             this.$emit('delete-task', taskId);
+        },
+        completeTask(taskId){
+            this.$emit('complete-task', taskId);
         }
     }
 }

@@ -5,11 +5,12 @@
     </base-card>
     <base-card>
         <task-item 
-            v-for="task in tasks" 
+            v-for="task in pendingTasks" 
             :key="task.id"
             :id="task.id"
             :task="task.title"
             @delete-task="deleteTask"
+            @complete-task="completeTask"
         >
         </task-item>
     </base-card>
@@ -27,17 +28,25 @@ export default {
         tasks: [
             {
                 id: 1,
-                title: "first"
+                title: "first",
+                pending: true
             },
             {
                 id: 2,
-                title: "second"
+                title: "second",
+                pending: true
             },
             {
                 id: 3,
-                title: "third"
+                title: "third",
+                pending: true
             },
         ]
+    }
+  },
+  computed: {
+    pendingTasks(){
+        return this.tasks.filter(task => task.pending === true);
     }
   },
   methods: {
@@ -51,6 +60,10 @@ export default {
     deleteTask(taskId){
         const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
         this.tasks.splice(taskIndex,1);
+    },
+    completeTask(taskId){
+        const taskIndex = this.tasks.findIndex(task => task.id === taskId);
+        this.tasks[taskIndex].pending = false;
     }
   },
   components: { TheHeader, BaseCard, TaskItem, AddTask }
