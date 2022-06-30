@@ -29,24 +29,24 @@ export default {
             {
                 id: 1,
                 title: "first",
-                pending: true
+                complete: false
             },
             {
                 id: 2,
                 title: "second",
-                pending: true
+                complete: false
             },
             {
                 id: 3,
                 title: "third",
-                pending: true
+                complete: false
             },
         ]
     }
   },
   computed: {
     pendingTasks(){
-        return this.tasks.filter(task => task.pending === true);
+        return this.tasks.filter(task => task.complete === false);
     }
   },
   methods: {
@@ -63,7 +63,7 @@ export default {
     },
     completeTask(taskId){
         const taskIndex = this.tasks.findIndex(task => task.id === taskId);
-        this.tasks[taskIndex].pending = false;
+        this.tasks[taskIndex].complete = true;
     }
   },
   components: { TheHeader, BaseCard, TaskItem, AddTask }
