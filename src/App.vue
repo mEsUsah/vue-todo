@@ -4,8 +4,8 @@
         <add-task @add-item="addTask"></add-task>
     </base-card>
     <base-card>
-        <button @click="showPendignTasks">Active</button>
-        <button @click="showCompletedTasks">Completed</button>
+        <button @click="showPendignTasks">Active ({{ getPendingTasks }})</button>
+        <button @click="showCompletedTasks">Completed ({{ getCompletedTasks }})</button>
         <task-item 
             v-for="task in displayedTasks" 
             :key="task.id"
@@ -55,7 +55,13 @@ export default {
         } else {
             return this.tasks.filter(task => task.complete === true);
         }
-    }
+    },
+    getCompletedTasks(){
+        return this.tasks.filter(task => task.complete === true).length;
+    },
+    getPendingTasks(){
+        return this.tasks.filter(task => task.complete === false).length;
+    },
   },
   methods: {
     addTask(task){
