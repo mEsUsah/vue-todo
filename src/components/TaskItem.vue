@@ -41,6 +41,7 @@ div:not(:last-of-type){
 }
 p{
     margin: 0;
+    text-transform: capitalize;
 }
 
 </style>
