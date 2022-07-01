@@ -103,24 +103,11 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
-body{
-    margin: 0 10px;
-    font-family: 'Lato', sans-serif;
-    background-color: rgb(182, 182, 182);
-}
-.tabs{
-    margin: 0 auto ;
-    max-width: 840px;
-    width: 100%;
-}
-.tabs button{
-    background-color: rgb(0, 194, 0);
-    border: 1px solid black;
-    padding: 6px 12px;
-    font-size: 16px;
-    line-height: 16px;
-    color: white;
-    cursor: pointer;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
+    body{
+        margin: 0 10px;
+        font-family: 'Lato', sans-serif;
+        background-color: rgb(182, 182, 182);
+        color: white;
+    }
 </style>
