@@ -2,9 +2,9 @@
     <div>
         <p>{{ task }}</p>
         <div>
-            <button v-if="complete" @click="deleteTask(id)">Delete</button>
-            <button v-if="complete" @click="activateTask(id)">Activate</button>
-            <button v-else @click="completeTask(id)">Complete</button>
+            <base-button v-if="complete" @click="deleteTask(id)">Delete</base-button>
+            <base-button v-if="complete" @click="activateTask(id)">Activate</base-button>
+            <base-button v-else @click="completeTask(id)">Complete</base-button>
         </div>
     </div>
 </template>
