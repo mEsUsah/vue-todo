@@ -23,7 +23,6 @@
 
 <script>
 import TheHeader from './components/TheHeader.vue';
-import BaseCard from './components/BaseCard.vue';
 import TaskItem from './components/TaskItem.vue';
 import AddTask from './components/AddTask.vue';
 
@@ -96,7 +95,6 @@ export default {
   },
   components: { 
     TheHeader, 
-    BaseCard, 
     TaskItem, 
     AddTask,
   }
