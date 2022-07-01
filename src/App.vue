@@ -105,7 +105,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
 body{
-    margin: 0;
+    margin: 0 10px;
     font-family: 'Lato', sans-serif;
     background-color: rgb(182, 182, 182);
 }
