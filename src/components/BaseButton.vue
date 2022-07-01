@@ -14,4 +14,7 @@
         color: white;
         cursor: pointer;
     }
+    button:not(:first-child){
+        margin-left: 6px;
+    }
 </style>
