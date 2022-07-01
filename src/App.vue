@@ -1,5 +1,4 @@
 <template>
-    <the-header title="Todo's"></the-header>
     <base-card>
         <add-task @add-item="addTask"></add-task>
     </base-card>
@@ -25,7 +24,6 @@
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue';
 import TaskItem from './components/TaskItem.vue';
 import AddTask from './components/AddTask.vue';
 
@@ -98,9 +96,8 @@ export default {
     }
   },
   components: {
-    TheHeader,
-    TaskItem,
-    AddTask,
+        TaskItem,
+        AddTask,
     }
 }
 </script>
