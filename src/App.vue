@@ -3,11 +3,14 @@
     <base-card>
         <add-task @add-item="addTask"></add-task>
     </base-card>
-    <div class="tabs">
-        <button @click="showPendignTasks">Active ({{ getPendingTasks }})</button>
-        <button @click="showCompletedTasks">Completed ({{ getCompletedTasks }})</button>
-    </div>
-    <base-card>
+    <base-card modifier="tabbed">
+        <tabs-wrapper
+            :activeList="activeList"
+            :pendingTasks="getPendingTasks"
+            :completedTasks="getCompletedTasks"
+            @switch-view="showTasks">
+        </tabs-wrapper>
+
         <task-item 
             v-for="task in displayedTasks" 
             :key="task.id"
@@ -85,19 +88,20 @@ export default {
         const taskIndex = this.tasks.findIndex(task => task.id === taskId);
         this.tasks[taskIndex].complete = false;
     },
-    
-    showCompletedTasks(){
-        this.activeList = 'completed';
-    },
-    showPendignTasks(){
-        this.activeList = 'pending'
+    showTasks(type){
+        if(type === 'completed'){
+            this.activeList = 'completed';
+        }
+        if(type === 'pending'){
+            this.activeList = 'pending';
+        }
     }
   },
-  components: { 
-    TheHeader, 
-    TaskItem, 
+  components: {
+    TheHeader,
+    TaskItem,
     AddTask,
-  }
+    }
 }
 </script>
 
